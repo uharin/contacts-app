@@ -2,9 +2,9 @@ class Contact < ApplicationRecord
 
   def as_json
     {
-    first_name: first_name,
-    last_name: last_name,
-    full_name: list_full_name,
+    first_name: f_name,
+    last_name: l_name,
+    full_name: full_name,
     email: email,
     phone: phone,
     updated_at: updated_at.strftime("%A, %B, %d")
@@ -12,7 +12,7 @@ class Contact < ApplicationRecord
   end
 
   def full_name
-    full_name = "#{first_name} #{last_name}"
+    full_name = "#{f_name} #{l_name}"
   end
 
   def jap_country_code

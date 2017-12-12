@@ -7,19 +7,23 @@ class ContactsController < ApplicationController
 
   def create
     contact = Contact.new({
-    first_name: params[:f_name],
-    last_name: params[:l_name],
+    f_name: params[:f_name],
+    l_name: params[:l_name],
     email: params[:email],
     })
     contact.save
   end
 
   def show
-
+    contact_id = params[:id]
+    contact = Contact.find_by(id: contact_id)
+    render json: contact.as_json
   end
 
   def update
-
+    contact_id = params[:id]
+    contact = Contact.find_by(id: contact_id)
+    # will get to this later
   end
 
   def destroy
